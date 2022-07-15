@@ -130,4 +130,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') #heroku
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-SITE_URL = 'http://127.0.0.1:8000/'
+SITE_URL = 'https://dev.websitestuff.com/'
