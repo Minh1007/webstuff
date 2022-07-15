@@ -20,18 +20,20 @@
         <h4 class="font-size-24 mb-4 mt-5">{{ data.category.name }} </h4>
         <div class="row">
             {% for content in data.contents %}
-            <div class="col-lg-3">
+            <div class="col-lg-3 mb-3">
                 <div class="stuff-card">
                     <div class="stuff-img borad-10" style="background-image: url('{{ site_url }}{{ content.image }}')">
-                        <button class="btn borad-20 b1">{{ data.category.name }}</button>
+                        <button class="elip-1 btn borad-20 b1">{{ data.category.name }}</button>
                     </div>
                     <div class="d-flex justify-content-between align-items-center mt-3">
-                        <h4>{{ content.name }} </h4>
+                        <h4 class="elip-1">{{ content.name }} </h4>
                         <div class="d-flex">
                             <span>{{ content.rating }}</span><img style="width: 20px" src='{% static "assets/img/star.png" %}'>
                         </div>
                     </div>
+                    <div class="content-desc elip-3">
                     <h5>{{ content.desc }}</h5>
+                    </div>
                     <button onclick="explore_content('{{ content.id }}')" class="btn borad-10 b2 mt-5">Explore Now <span class="float-right"><i class="fa fa-fw fa-long-arrow-right"></i></span></button>
                 </div>
             </div>

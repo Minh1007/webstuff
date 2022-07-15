@@ -1696,6 +1696,25 @@
 .stuff-card .b2 span{
     color: var(--gray-800);
 }
+
+.stuff-card .content-desc{
+    min-height: 57px;
+}
+.elip-3 {
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+}
+.elip-1 {
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+}
+
 /* ---------------------------stuff ---------------------- */
 
 /* -----------------------------content -----------------*/
