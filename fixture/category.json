@@ -1,0 +1,58 @@
+[
+  {
+      "model": "main.Category",
+      "pk": "1090279d-9f65-4e9c-9e52-a493a262e30f",
+      "fields": {
+          "name": "Graphic Designing"
+      }
+  },
+  {
+      "model": "main.Category",
+      "pk": "2dcba2e4-28bc-494c-99f2-9255971b8ad8",
+      "fields": {
+          "name": "Programming"
+      }
+  },
+  {
+      "model": "main.Category",
+      "pk": "44802520-6d65-45af-b73d-3a9e18a7fce4",
+      "fields": {
+          "name": "Digital Marketing"
+      }
+  },
+  {
+      "model": "main.Category",
+      "pk": "60a886fe-fa45-4d66-a6ff-7b5b19ae06d5",
+      "fields": {
+          "name": "Videography"
+      }
+  },
+  {
+      "model": "main.Category",
+      "pk": "755e5eac-8393-472a-8dc0-75749e97cfe0",
+      "fields": {
+          "name": "Social media Marketing"
+      }
+  },
+  {
+      "model": "main.Category",
+      "pk": "bbe2408c-fc27-4544-a422-63584734d3af",
+      "fields": {
+          "name": "Content Writing"
+      }
+  },
+  {
+      "model": "main.Category",
+      "pk": "18527efe-9a20-472f-9a1b-3a1ee246d02c",
+      "fields": {
+          "name": "Lifestyle"
+      }
+  },
+  {
+      "model": "main.Category",
+      "pk": "3928c71c-5ed2-451b-9551-152bf6c3276b",
+      "fields": {
+          "name": "Business"
+      }
+  }
+]

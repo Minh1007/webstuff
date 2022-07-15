@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <section class="contactus m-5 p-3">
+        <div>
+            <form>
+                <div class="row contactbox d-mobile-none">
+                    <div class="col-lg-7">
+                        <h4 class="mb-5">Contact Us</h4>
+                        <h5 class="mb-5">Send us a comment”</h5>
+                        <form>
+                            <input id="contact_email" type="email" class="form-control mb-5 borad-5" id="" placeholder="Contact Email">
+                            <textarea id="contact_message" class="form-control borad-5 mb-5" placeholder="Message"></textarea>
+                            <button type="button" class="btn contactbtn" onclick="contact()">Submit</button>
+                        </form>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="m-5">
+                            <img class="w-100" src='{% static "assets/img/contact.png" %}'>
+                        </div>
+                    </div>
+                </div>
+                <div class="row contactbox d-desktop-none d-mobile-block">
+                    <div class="col-xs-12">
+                        <div class="m-5">
+                            <img class="w-100" src='{% static "assets/img/contact.png" %}'>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <h4 class="mb-5">Contact Us</h4>
+                        <h5 class="mb-5">Send us a comment”</h5>
+                        <form>
+                            <input id="m_contact_email" type="email" class="form-control mb-5 borad-5" id="" placeholder="Contact Email">
+                            <textarea id="m_contact_message" class="form-control borad-5 mb-5" placeholder="Message"></textarea>
+                            <button type="button" class="btn contactbtn" onclick="mcontact()">Submit</button>
+                        </form>
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+    </section>
+{% endblock content %}

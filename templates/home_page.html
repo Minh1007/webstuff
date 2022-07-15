@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="row d-desktop-none d-mobile-block mobile-search">
+        <div class="col-xs-12">
+            <div class="d-flex">
+                <div class="d-search-input w-100">
+                    <i class="fa fa-fw fa-search"></i><input id="mobilesearchinput" class="form-control borad-10" type="text" placeholder="Search here">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="intro-sec">
+        <div class="d-into-sec">
+            <div class="row">
+                <div class="col-md-6 col-xs-10 col-lg-6 d-flex align-items-center h-100">
+                    <div class="m-5 p-3">
+                        <h3 class="white about mb-1 mb-lg-5">All the stuff to make a <span class="yellow-b">website.</span> Do it yourself or let us help</h3>
+                        <h4 class="white about-d">Everything needed to build a website, big or small.</h4>
+                        <h4 class="white about-d mb-5 d-mobile-none">These are the same resources we use to build amazing websites and applications. If you need help, just ask! </h4>
+                        <button onclick="contactus()" class="btn borad-10 contactusbtn">Contact Us</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="stuff-sec m-5 p-3">
+        {% for category in contents %}
+            {% if category.has_contents %}
+                <h4 class="font-size-24 mb-4 mt-5">{{ category.name }} </h4>
+                <div class="row">
+                    {% for content in category.contents %}
+                    <div class="col-lg-3">
+                        <div class="stuff-card">
+                            <div class="stuff-img borad-10" style="background-image: url('{{ site_url }}{{ content.image }}')">
+                                <button class="btn borad-20 b1">{{ category.name }}</button>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <h4>{{ content.name }} </h4>
+                                <div class="d-flex">
+                                    <span>{{ content.rating }}</span><img style="width: 20px" src='{% static "assets/img/star.png" %}'>
+                                </div>
+                            </div>
+                            <h5>{{ content.desc }}</h5>
+                            <button onclick="explore_content('{{ content.id }}')" class="btn borad-10 b2 mt-4 mb-lg-1">Explore Now <span class="float-right"><i class="fa fa-fw fa-long-arrow-right"></i></span></button>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </section>
+{% endblock content %}
