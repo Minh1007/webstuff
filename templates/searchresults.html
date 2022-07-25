@@ -2,27 +2,14 @@
 {% load static %}
 
 {% block content %}
-    <section class="intro-sec">
-        <div class="d-into-sec d-mobile-none">
-            <div class="row">
-                <div class="col-lg-6 d-flex align-items-center h-100">
-                    <div class="m-5 p-3">
-                        <h3 class="white about mb-5">All the stuff to make a <span class="yellow-b">website.</span> Do it yourself or let us help</h3>
-                        <h4 class="white about-d mb-5">Everything needed to build a website, big or small. These are the same resources we use to build amazing websites and applications. If you need help, just ask! </h4>
-                        <button onclick="contactus()" class="btn borad-10 contactusbtn">Contact Us</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
     <section class="stuff-sec m-5 p-3">
         <h4>Search Results for <span class="font-w-600">"{{ keyword }}"</span></h4>
         <div class="row">
             {% for content in contents %}
-            <div class="col-lg-3">
+            <div class="col-lg-3 mb-3">
                 <div class="stuff-card">
                     <div class="stuff-img borad-10" style="background-image: url('{{ site_url }}{{ content.image }}')">
-                        <button class="btn borad-20 b1">{{ content.category }}</button>
                     </div>
                     <div class="d-flex justify-content-between align-items-center mt-3">
                         <h4>{{ content.name }} </h4>
@@ -35,6 +22,23 @@
                 </div>
             </div>
             {% endfor %}
+        </div>
+        <div class="pagination">
+            <span class="step-links">
+                {% if contents.has_previous %}
+                    <a class="ml-3 hand" onclick="gopage(1)">&laquo; first</a>
+                    <a class="ml-3 hand" onclick="gopage({{ contents.previous_page_number }})" >previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ contents.number }} of {{ contents.paginator.num_pages }}.
+                </span>
+
+                {% if contents.has_next %}
+                    <a class="ml-3 hand" onclick="gopage({{ contents.next_page_number }})">next</a>
+                    <a class="ml-3 hand" onclick="gopage({{ contents.paginator.num_pages }})">last &raquo;</a>
+                {% endif %}
+            </span>
         </div>
     </section>
 {% endblock content %}

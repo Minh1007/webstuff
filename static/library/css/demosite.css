@@ -1762,6 +1762,10 @@
 .d-desktop-none{
     display: none;
 }
+
+.hand {
+    cursor: pointer;
+}
 @media (max-width: 1200px){
     .control-sidebar{
         padding-top: 108px !important;

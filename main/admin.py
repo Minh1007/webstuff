@@ -18,6 +18,8 @@ class ContentAdmin(admin.ModelAdmin):
     list_display.append("get_category_name")
     list_display.append("get_subcategory_name")
 
+    change_form_template = 'admin/content_admin_form.html'
+
     def get_category_name(self, obj):
         return obj.category.name
     def get_subcategory_name(self, obj):

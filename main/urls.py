@@ -10,4 +10,5 @@ urlpatterns = [
     path('contact', views.contact),
     path('search', views.search),
     path('contents/<content_id>', views.contentview),
+    path('get_subcategories_by_ctid', views.get_subcategories_by_ctid),
 ]

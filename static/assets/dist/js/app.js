@@ -10,6 +10,9 @@ $(window).on('load', function() {
         }
     });
 
+    $('.carousel').carousel({
+        interval: 2000
+    });
 
 });
 function getCsrfToken() {
@@ -52,6 +55,11 @@ $('#mobilesearchinput').keypress(function (e) {
 
 function explore_content(id){
     window.location.href = "/contents/" + id;
+}
+
+function gopage(i) {
+    var cur_path = window.location.href;
+    window.location.href = cur_path + "&page=" + i;
 }
 function contactus() {
     redirect('/contact_us');
