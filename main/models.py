@@ -24,11 +24,11 @@ class SubCategory(models.Model):
 class Content(models.Model):
     id = models.UUIDField(default=uuid4, primary_key=True, null=False, editable=False)
     name = models.CharField(max_length=255, blank=False, null=False)
-    desc = models.CharField(max_length=255, blank=False, null=False)
+    desc = models.CharField(max_length=4096, blank=False, null=False)
     rating = models.FloatField(blank=False, null=False)
     site_url = models.CharField(max_length=255, blank=False, null=False)
     staff_comment = models.CharField(max_length=255, blank=False, null=False)
     image = models.ImageField(null=False, upload_to="static/library/img")
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=False)
     subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE, null=False)
-    admin = models.ForeignKey(tbl_user, on_delete=models.CASCADE, null=True)
+    admin = models.ForeignKey(tbl_user, on_delete=models.CASCADE, null=True, default=0)
