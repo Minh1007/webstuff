@@ -31,8 +31,15 @@
 
 <script>
     $(document).ready(function () {
-        $('#id_category').change(function () {
+        $.ajax({
+            type: "POST",
+            url: "/get_operting_stuff",
+            success: function (res) {
+                $('#id_admin').val(res);
+            }
+        });
 
+        $('#id_category').change(function () {
             $.ajax({
                 type: "POST",
                 url: "/get_subcategories_by_ctid",

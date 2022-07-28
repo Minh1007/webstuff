@@ -122,6 +122,10 @@
 .d-n {
   display: none !important;
 }
+.d-nni {
+  display: none;
+}
+
 .d-flex {
   display: flex !important;
 }
@@ -1579,7 +1583,10 @@
 }
 .top-header a{
     color: var(--black);
-    font-size: 20px;
+    font-size: 16px;
+}
+.top-header .active{
+    font-weight: bold;
 }
 .bottom-header{
     background-color: #F8F8F8;
@@ -1670,6 +1677,8 @@
 /* ---------------------------intro ---------------------- */
 
 /* ---------------------------stuff ---------------------- */
+
+
 .stuff-sec .stuff-img{
     /*background-image: url('../../assets/img/design.png');*/
     background-size: cover;
@@ -1699,6 +1708,7 @@
 
 .stuff-card .content-desc{
     min-height: 57px;
+    height: 57px;
 }
 .elip-3 {
   -webkit-line-clamp: 3;
@@ -1770,8 +1780,26 @@
 .control-sidebar{
     display: none;
 }
+.slidewrapper{
+    width: 88%;
+}
+.stuff-sec-mobile{
+    display: none;
+}
 
 @media (max-width: 1200px){
+    .stuff-sec-mobile{
+        display: block;
+    }
+    .stuff-sec-mobile .stuff-img{
+        background-size: cover;
+        padding-top: 80%;
+        width: 100%;
+    }
+
+    .stuff-sec-desktop{
+        display: none;
+    }
     .control-sidebar{
         padding-top: 108px !important;
         border-radius: 5px;
@@ -1794,10 +1822,10 @@
         height: 48vw;
     }
     .d-into-sec .about{
-        font-size: 22px;
+        font-size: 16px;
     }
     .d-into-sec .about-d{
-        font-size: 16px;
+        font-size: 14px;
     }
     .d-into-sec .contactusbtn{
         display: none;

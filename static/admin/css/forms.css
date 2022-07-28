@@ -101,6 +101,11 @@ form ul.inline li {
     width: -webkit-fill-available;
     width: -moz-fit-content;
 }
+.aligned .form-row textarea {
+    margin-bottom: 0;
+    width: -webkit-fill-available;
+    width: -moz-fit-content;
+}
 
 .colMS .aligned .vLargeTextField, .colMS .aligned .vXMLLargeTextField {
     width: 350px;
@@ -535,4 +540,7 @@ form .related-widget-wrapper ul {
 .aligned .form-row select {
     width: -webkit-fill-available;
     width: -moz-fit-content;
+}
+.field-admin{
+    display: none;
 }

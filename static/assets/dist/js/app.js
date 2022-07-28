@@ -11,7 +11,9 @@ $(window).on('load', function() {
     });
 
     $('.carousel').carousel({
-        interval: 2000
+        ride: false,
+        pause: true,
+        interval: false
     });
 
 });
@@ -57,6 +59,32 @@ function explore_content(id){
     window.location.href = "/contents/" + id;
 }
 
+function seeall(id) {
+    document.getElementById('seeall_' + id).style.display = 'none';
+    document.getElementById('lessrow_' + id).style.display = 'none';
+    document.getElementById('seeless_' + id).style.display = 'block';
+    document.getElementById('allrow_' + id).style.display = 'block';
+}
+function seeless(id) {
+    document.getElementById('seeall_' + id).style.display = 'block';
+    document.getElementById('lessrow_' + id).style.display = 'block';
+    document.getElementById('seeless_' + id).style.display = 'none';
+    document.getElementById('allrow_' + id).style.display = 'none';
+}
+
+function goprev(id) {
+    $('#c_carousel_' + id).carousel('prev');
+}
+function gonext(id) {
+    $('#c_carousel_' + id).carousel('next');
+}
+function mbgoprev(id) {
+    $('#mb_carousel_' + id).carousel('prev');
+}
+function mbgonext(id) {
+    $('#mb_carousel_' + id).carousel('next');
+}
+
 function gopage(i) {
     var cur_path = window.location.href;
     window.location.href = cur_path + "&page=" + i;
@@ -75,14 +103,14 @@ function contact() {
     var mes = $('#contact_message').val();
     var param = {
         email: email,
-        mes: mes
+        message: mes
     };
     $.ajax({
         type: "POST",
         url: "/contact",
         data: param,
         success: function (res) {
-            console.log(res)
+            alert('Thanks for contacting us');
         }
     })
 }
@@ -91,14 +119,14 @@ function mcontact() {
     var mes = $('#m_contact_message').val();
     var param = {
         email: email,
-        mes: mes
+        message: mes
     };
     $.ajax({
         type: "POST",
         url: "/contact",
         data: param,
         success: function (res) {
-            console.log(res)
+            alert('Thanks for contacting us');
         }
     })
 }

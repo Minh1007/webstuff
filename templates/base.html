@@ -44,9 +44,9 @@
                     </div>
                     <div class="col-lg-4 d-mobile-none">
                         <div class="d-flex justify-content-end">
-                            <a class="mr-5 font-w-600" href="/">Home</a>
-                            <a class="mr-5" href="/contact_us">Contact Us</a>
-                            <a class="mr-5" href="#">About Us</a>
+                            <a id="menu_home" class="mr-5" href="/">Home</a>
+                            <a id="menu_contact" class="mr-5" href="/contact_us">Contact Us</a>
+                            <a id="menu_about" class="mr-5" href="#">About Us</a>
                         </div>
                     </div>
                     <div class="col-xs-12 d-desktop-none d-mobile-block">
@@ -139,13 +139,13 @@
             <div class="tab-content">
                 <div class="tab-pane active" id="control-sidebar-home-tab">
                     <div class="mb-3 mt-3">
-                        <a class="mr-5 font-size-20" href="/">Home</a>
+                        <a id="mb_menu_home" class="mr-5 font-size-20" href="/">Home</a>
                     </div>
                     <div class="mb-3">
-                        <a class="mr-5 font-size-20" href="/contact_us">Contact Us</a>
+                        <a id="mb_menu_contact" class="mr-5 font-size-20" href="/contact_us">Contact Us</a>
                     </div>
                     <div class="mb-3">
-                        <a class="mr-5 font-size-20" href="#">About Us</a>
+                        <a id="mb_menu_about" class="mr-5 font-size-20" href="#">About Us</a>
                     </div>
                 </div>
             </div>
@@ -159,7 +159,6 @@
         <script type="text/javascript" src="{% static 'assets/bower_components/fastclick/lib/fastclick.js' %}"></script>
         <script type="text/javascript" src="{% static 'assets/dist/js/adminlte.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'assets/dist/js/app.js' %}"></script>
-
         {% block extra_js %}
         {# Override this in templates to add extra javascript #}
         {% endblock %}

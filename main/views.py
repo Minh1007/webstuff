@@ -5,6 +5,7 @@ from django.conf import settings
 from .models import *
 from django.views.decorators.csrf import csrf_exempt
 from django.core.paginator import Paginator
+from operator import itemgetter
 # Create your views here.
 
 def get_contents():
@@ -13,6 +14,7 @@ def get_contents():
     n_categories = []
     for item in categories:
         contents_by_category_id = list(Content.objects.filter(category=item['id']).values())
+        contents_by_category_id = sorted(contents_by_category_id, key=itemgetter('rating'), reverse=True)
         cn = len(contents_by_category_id)
         m = cn % 4
         sub_cn = cn // 4
@@ -44,12 +46,14 @@ def get_contents():
             new_array.append(temp)
 
         item['contents'] = new_array
+        item['mobile_contents'] = contents_by_category_id
         item['has_contents'] = True if len(contents_by_category_id) > 0 else False
         n_categories.append(item)
     return n_categories
 
 def get_subcategory_contents(cg_id, sub_cg_id):
     contents = list(Content.objects.filter(category=cg_id, subcategory=sub_cg_id).values())
+    contents = sorted(contents, key=itemgetter('rating'), reverse=True)
     has_contents = True if len(contents) > 0 else False
     category = Category.objects.get(id=cg_id)
     sub_category = SubCategory.objects.get(id=sub_cg_id)
@@ -66,8 +70,10 @@ def get_top_menu():
     categories = list(Category.objects.all().values())
     for item in categories:
         sub_categories_by_category_id = list(SubCategory.objects.filter(category=item['id']).values())
-
+        sub_categories_by_category_id = sorted(sub_categories_by_category_id, key=itemgetter('name'))
         item['sub_categories'] = sub_categories_by_category_id
+
+    categories = sorted(categories, key=itemgetter('name'))
     return categories
 
 def subcategory(request, cg_id, sub_cg_id):
@@ -101,7 +107,8 @@ def contact_us(request):
 
 def contact(request):
     param = request.POST
-
+    email = param['email']
+    message = param['message']
     # todo
     # add code here to receive email
     return HttpResponse('success')
@@ -111,6 +118,7 @@ def search(request):
     keyword = param['keyword']
 
     contents = list(Content.objects.filter(Q(subcategory__name__icontains=keyword) | Q(category__name__icontains=keyword)).values())
+    contents = sorted(contents, key= itemgetter('rating'), reverse=True)
     n_contents = []
     for ct in contents:
         ct['category'] = Category.objects.get(id=ct['category_id'])
@@ -131,12 +139,14 @@ def contentview(request, content_id):
     content_by_id = list(Content.objects.filter(id=content_id).values())[0]
     category = Category.objects.get(id=content_by_id['category_id'])
     sub_category = SubCategory.objects.get(id=content_by_id['subcategory_id'])
+    user = tbl_user.objects.get(pk=content_by_id['admin_id'])
     data = {
         "categories": get_top_menu(),
         "content": content_by_id,
         "site_url": settings.SITE_URL,
         "category": category,
         "sub_category": sub_category,
+        "user": user
     }
 
     return render(request, 'content.html', data)
@@ -147,3 +157,8 @@ def get_subcategories_by_ctid(request):
     id_category = param['id_category']
     data = list(SubCategory.objects.filter(category=id_category).values())
     return JsonResponse({'data': data})
+
+@csrf_exempt
+def get_operting_stuff(request):
+    user = request.user
+    return HttpResponse(user.id)

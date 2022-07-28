@@ -1,5 +1,10 @@
 from django.db import models
 from uuid import uuid4
+from django.contrib.auth.models import AbstractUser
+
+class tbl_user(AbstractUser):
+    image = models.ImageField(null=False, upload_to="static/library/img/user")
+
 
 class Category(models.Model):
     id = models.UUIDField(default=uuid4, primary_key=True, null=False, editable=False)
@@ -26,3 +31,4 @@ class Content(models.Model):
     image = models.ImageField(null=False, upload_to="static/library/img")
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=False)
     subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE, null=False)
+    admin = models.ForeignKey(tbl_user, on_delete=models.CASCADE, null=False)
