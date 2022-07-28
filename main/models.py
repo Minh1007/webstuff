@@ -31,4 +31,4 @@ class Content(models.Model):
     image = models.ImageField(null=False, upload_to="static/library/img")
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=False)
     subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE, null=False)
-    admin = models.ForeignKey(tbl_user, on_delete=models.CASCADE, null=True, default=0)
+
